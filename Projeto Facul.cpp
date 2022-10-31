@@ -149,7 +149,21 @@ int main (){
 	
 	
 	
-	//imprima
+	//imprima - Daniel 
+	/*char nome[1000][50] , email[1000][50] , sexo[1000][15] , endereco[1000][50];
+ 	double altura[1000];
+ 	int vacina[1000];*/
+	for(i = 0; i < 1000; i++){
+		if (vacina[i] == 1)
+		{
+			printf("Usuario %d:\nNome:%s\nEmail:%s\nsexo:%s\nEndereco:%s\naltura:%.2lf\nVacina:Sim",i,nome[i], email[i], sexo[i] , endereco[i],altura[i]);
+		}else if (vacina[i] == 0)
+		{
+			printf("Usuario %d:\nNome:%s\nEmail:%s\nsexo:%s\nEndereco:%s\naltura:%.2lf\nVacina:Nao",i,nome[i], email[i], sexo[i] , endereco[i],altura[i]);
+		}
+		
+	}
+	
 	
 	
 	//backup

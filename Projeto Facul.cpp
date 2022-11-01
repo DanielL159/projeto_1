@@ -131,16 +131,103 @@ int main (){
 	printf("Deseja editar algum usuário 1 ou 0? ");
 	fflush(stdin);
 	scanf("%d", &editar);//editar
-	
+	//[i]
 	if(editar >= 1){
-		int index;
+		int index, opcao;
 		printf("Digite o index que você deseja editar: ");
 		fflush(stdin);
 		scanf("%d", &index); 
+
+		printf("Qual informacao voce deseja alterar ?\n1: Nome\n2: Email\n3: Sexo\n4: Endereco\n5: Altura\n6: Vacina\n\nDigite o numero: ");
+        fflush(stdin);
+		scanf("%d", &opcao);
+
+        switch (opcao)
+        {
+        case 1:
+            printf("Me forneca o nome:");
+	 	    fflush(stdin);
+	 	    fgets(nome[index],50,stdin);
+	 
+            break;
+        
+        case 2:
+            printf("Me forneca o email:");
+	 	fflush(stdin);
+	 	fgets(email[index],50,stdin);
+			
+		printf("\n%s", email[i]);
 		
+		if(strchr(email[index], '@') == 0){
+			printf("Email invalido\n");
+			
+			printf("Me forneca o email:");
+	 		fflush(stdin);
+	 		fgets(email[index],50,stdin);
+		
+		}
+		else{
+			printf("Email valido\n");
+		}
+
+            break;
+        case 3:
+            printf("Me o sexo (Feminino, Masculino e Não declarar):");
+            fflush(stdin);
+            fgets(sexo[index],50,stdin);
+            
+            if(strcmp(sexo[index], "Feminino") == 0 && strcmp(sexo[index], "Masculino") == 0 && strcmp(sexo[index], "Feminino") == 0){
+                printf("Sexo invalido\n");
+                
+                printf("Me o sexo (Feminino, Masculino e Não declarar):");
+                fflush(stdin);
+                fgets(sexo[index],50,stdin);
+            }else{
+                printf("Sexo valido");
+            }
+            break;
+        
+        case 4:
+            printf("Me forneca o endereco:");
+	 	    fflush(stdin);
+	 	    fgets(endereco[index],50,stdin);
+            break;
+
+        case 5:
+            printf("Me forneca a altura:");
+	 	fflush(stdin);
+	 	scanf("%lf", &altura[index]);
+	 	
+	 	printf("%.2lf", altura[index]);
+	 	
+	 	if(altura[index] > 1.00 && altura[index] < 2.00){
+			printf("Tá valido\n"); 		
+		 }
+		 else{
+		 	printf("Altura invalida\n");
+		 	
+		 	printf("Me forneca a altura:");
+	 		fflush(stdin);
+	 		scanf("%lf", &altura[index]);
+		 }
+            break;
+        
+        case 6:
+            printf("Tomou vacina ? 1 - sim\n0 - nao\n> ");
+		    fflush(stdin);
+		    scanf("%d", &vacina[index]);
+		     printf("%i");
+           break;
+
+        default:
+            printf("\nOpcao invalida\n");
+            break;
+        } 
+
+        printf("%s", endereco[0]);
+
 	}
 
-	//editar
 	
 	//excluir
 	

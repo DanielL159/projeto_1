@@ -231,15 +231,12 @@ int main (){
 	
 	//excluir
 	
-	
 	//busque
 	
 	
 	
 	//imprima - Daniel 
-	/*char nome[1000][50] , email[1000][50] , sexo[1000][15] , endereco[1000][50];
- 	double altura[1000];
- 	int vacina[1000];*/
+	
 	for(i = 0; i < 1000; i++){
 		if (vacina[i] == 1)
 		{

@@ -30,11 +30,13 @@ Duas equipes serão sorteadas para realizar a apresentação do projeto, tendo 1
 
 int main (){
  	
- 	int i,  id[1000] ;
+ 	int i, j,  id[1000] ,idB[1000] ;
 	int tempo = time(0);
- 	char nome[1000][50] , email[1000][50] , sexo[1000][15] , endereco[1000][50];
- 	double altura[1000];
- 	int vacina[1000];
+ 	char nome[1000][50] ,nomeB[1000][50] , email[1000][50],emailB[1000][50] , sexo[1000][15],sexoB[1000][15] , endereco[1000][50],enderecoB[1000][50];
+ 	double altura[1000],alturaB[1000];
+ 	int vacina[1000],vacinaB[1000];
+	int index,indexB;
+	char pemail[50],pemailB[50];
  	
 	
 	int continua = 1;

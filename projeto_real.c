@@ -84,9 +84,7 @@ int main(){
                     fgets(email[i],50,stdin);
                 
                 }
-                else{
-                    printf("Email valido\n");
-                }
+               
                 
                 //SEXO
                 printf("Me o sexo (Feminino, Masculino e Nao declarar):");
@@ -99,8 +97,6 @@ int main(){
                     printf("Me o sexo (Feminino, Masculino e Nao declarar):");
                     fflush(stdin);
                     fgets(sexo[i],50,stdin);
-                }else{
-                    printf("Sexo valido\n");
                 }
                 
                 

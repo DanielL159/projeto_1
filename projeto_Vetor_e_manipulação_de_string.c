@@ -1,11 +1,26 @@
-/*
-
-    exclua um usuário;//duda(apoio alisson)
-    busque um usuário pelo email;//alisson
-    faça backup dos usuários cadastrados;//Daniel e alisson
-    faça restauração dos dados;//Duda e Marcela
-
-*/
+/*Descrição do Projeto 01:
+Utilizando os conceitos de vetor, implemente um algoritmo que:
+ //TODOS QUE TIVEREM Asterisco* JA FORAM FEITOS.
+ //ATENÇAO PRA FUNCAO DE CADA UM 
+ 
+    inclua até 1000 usuários; ****
+    edite um usuário;//marcela(apoio do Daniel) ****
+    exclua um usuário;//duda(apoio alisson) ****
+    busque um usuário pelo email;//alisson ****
+    imprima todos os usuários cadastrados;//Daniel ****
+    faça backup dos usuários cadastrados;//Daniel e alisson ****
+    faça restauração dos dados;//Duda e Marcela ****
+    
+    Por ultimo faremos uma reuniao pra editar e melhorar esse codigo , antes da entrega .//Daniel, Alisson, Marcela, Duda.
+Dados do usuário:
+    Id (int) => preenchido automaticamente por números randômicos ****
+    Nome completo (string) ****
+    Email (string) => validação do campo: verificar se o caractere "@" aparece ****
+    Sexo (string) => validação do campo: aceitar somente as palavras Feminino, Masculino e Não declarar****
+    Endereço (string) ****
+    Altura (double) => validação do campo: aceitar valores entre 1 e 2 ****
+    Vacina (tomou a vacina? boolean) -> usou int ****
+Duas equipes serão sorteadas para realizar a apresentação do projeto, tendo 15 min para cada apresentação.*/
 
 #include <stdio.h>
 #include <string.h>
@@ -14,9 +29,16 @@
 
 int main(){
 
+    // declaracao de variaveies
+    //temos as do vetor principal como email
+    //temos as do backup como emailB
+    //temos os contadores i e j
+
+    // as variaveis count e calculo sao usadas para medir e calcualar o tamanho dos vetores (isso sera util no backup e restauracao)
+
     int i, j,  id[1000] ,idB[1000] ;
-	int tempo = time(0);
- 	char nome[1000][50] ,nomeB[1000][50] , email[1000][50],emailB[1000][50] , sexo[1000][15],sexoB[1000][15] , endereco[1000][50],enderecoB[1000][50];
+	int tempo = time(0); // essa variavel esta sendo utilizada para gerar o ID aleatorio
+ 	char nome[1000][50] ,nomeB[1000][50], email[1000][50], emailB[1000][50] , sexo[1000][15],sexoB[1000][15] , endereco[1000][50],enderecoB[1000][50];
  	double altura[1000],alturaB[1000];
  	int vacina[1000],vacinaB[1000];
 	int index;
@@ -29,47 +51,40 @@ int main(){
 	i = 0;
  	int count = 0;
     int contador = 0;
-    int calculo;
-    int restauracao = 0;
 	int opcao = 0;
     int edita = 0;
     
-    
-	int countb;
-	for(countb = 0; countb < 10; countb++){
-		printf("%d ", countb);
-	}
-	
-	printf("%d ", countb);
-	
-
     while(opcao != 8){
 
-        printf("O que voce deseja fazer agora ?\n");
-		printf("inclua ate 1000 usuarios: 1\nedite um usuario: 2\nexclua um usuario: 3\nbusque um usuario pelo email: 4\nimprima todos os usuarios cadastrados: 5\nfaca backup dos usuarios cadastrados: 6\nfaca restauracao dos dados: 7\nFinaliza o programa: 8\n\n>");
-		fflush(stdin);
+        //Menu de opcoes
+        printf("\n****************************************************\n" );
+        printf("O que voce deseja fazer ?\n");
+		printf("inclua ate 1000 usuarios: 1\nedite um usuario: 2\nexclua um usuario: 3\nbusque um usuario pelo email: 4\nimprima todos os usuarios cadastrados: 5\nfaca backup dos usuarios cadastrados: 6\nfaca restauracao dos dados: 7\nFinaliza o programa: 8\n");
+        printf("****************************************************\n" );
+        fflush(stdin);
+        printf("Escolha: ");
 		scanf("%d", &opcao);
 
         switch (opcao)
         {
         case 1:
-            
+            // insere dados
 			for(i = count; i < 1000; i++){
                 
                 //ID
                 //srand(tempo);
                 id[i] = rand();
-                printf("%d\n ",id[i]);
+                //printf("%d\n ",id[i]); // estavamos usando isso para ter um controle de qual é o id gerado
             
             
                 //NOME
-                printf("Me forneca o nome:");
+                printf("Me forneca o nome: ");
                 fflush(stdin);
                 fgets(nome[i],50,stdin);
             
                 
                 //EMAIL
-                printf("Me forneca o email:");
+                printf("Me forneca o email: ");
                 fflush(stdin);
                 fgets(email[i],50,stdin);
                     
@@ -79,7 +94,7 @@ int main(){
                 if(strchr(email[i], '@') == 0){
                     printf("Email invalido\n");
                     
-                    printf("Me forneca o email:");
+                    printf("Me forneca o email: ");
                     fflush(stdin);
                     fgets(email[i],50,stdin);
                 
@@ -87,42 +102,42 @@ int main(){
                
                 
                 //SEXO
-                printf("Me o sexo (Feminino, Masculino e Nao declarar):");
+                printf("Me o sexo (Feminino, Masculino e Nao declarar): ");
                 fflush(stdin);
                 fgets(sexo[i],50,stdin);
                 
                 if(strcmp(sexo[i], "Feminino") == 0 && strcmp(sexo[i], "Masculino") == 0 && strcmp(sexo[i], "Feminino") == 0){
                     printf("Sexo invalido\n");
                     
-                    printf("Me o sexo (Feminino, Masculino e Nao declarar):");
+                    printf("Me o sexo (Feminino, Masculino e Nao declarar): ");
                     fflush(stdin);
                     fgets(sexo[i],50,stdin);
                 }
                 
                 
                 //ENDERECO
-                printf("Me forneca o endereco:");
+                printf("Me forneca o endereco: ");
                 fflush(stdin);
                 fgets(endereco[i],50,stdin);
                 
                 
                 //ALTURA
-                printf("Me forneca a altura:");
+                printf("Me forneca a altura: ");
                 fflush(stdin);
                 scanf("%lf", &altura[i]);
                 
-                printf("%.2lf", altura[i]);
+               // printf("%.2lf", altura[i]); novamente um print para controle
                 
                 if(altura[i] < 1.00 && altura[i] > 2.00){
                     printf("Altura invalida\n");
                     
-                    printf("Me forneca a altura:");
+                    printf("Me forneca a altura: ");
                     fflush(stdin);
                     scanf("%lf", &altura[i]);		
                 }
                 
                 //VACINA
-                printf("Tomou vacina ? 1 - sim\n0 - nao\n> ");
+                printf("Tomou vacina (0 ou 1): ");
                 fflush(stdin);
                 scanf("%d", &vacina[i]);
                 
@@ -130,23 +145,23 @@ int main(){
                
                 //if nesse espaco é null pode adicionar 
                 int continua;	
-                printf("Deseja inserir um usuário  1 ou 0?");
+                printf("Deseja inserir um usuario (1 ou 0): ");
                 fflush(stdin);
                 scanf("%d", &continua);
                 
                 if(continua == 0){
-                    printf("Pessoas cadastradas %d\n", count);
+                    printf("Pessoas cadastradas atualmente %d\n", count);
                     break;
                 }
 
-                count++;
+                count++; // aumenta a quantidade de usuarios cadastrados no vetor principal
             }
-            contador=count;
+            contador=count; // aumenta a quantidade totoal de usuarios ja cadastrados, de forma geral e o total de entradas ja feitas no sistema
             break;
 
         case 2:
             //edite um usuário
-            printf("opcao: %d\n ", opcao);
+            //printf("opcao: %d\n ", opcao);
             
                 printf("Digite o index que voce deseja editar: ");
 				fflush(stdin);
@@ -183,14 +198,14 @@ int main(){
 
 						break;
 					case 3:
-						printf("Forneca o sexo (Feminino, Masculino e Nao declarar): ");
+						printf("Forneca o sexo (Feminino, Masculino e Nao declarar):  ");
 						fflush(stdin);
 						fgets(sexo[index], 50,stdin);
 						
 						if(strcmp(sexo[index], "Feminino") == 0 && strcmp(sexo[index], "Masculino") == 0 && strcmp(sexo[index], "Nao declarar") == 0){
 							printf("Sexo invalido\n");
 							
-							printf("Forneca o sexo (Feminino, Masculino e Nao declarar): ");
+							printf("Forneca o sexo (Feminino, Masculino e Nao declarar):  ");
 							fflush(stdin);
 							fgets(sexo[index], 50,stdin);
 						}
@@ -232,14 +247,20 @@ int main(){
             break;
 
         case 3:
+
+            // exclui um usuario de acordo com o index dele, para encontrar o index do usuario pesquise o email dele 
             //printf("opcao: %d\n", opcao);
             
             printf("Me forneca o index: ");
             fflush(stdin);
             scanf("%d", &exclui);
-            
+
+
+            // A logica consiste em encutar um vetor
+            // pegamos o que estiver no index a frente e jogamos para o index atual enquanto houver espaco preenchido  
             for(j = exclui; j != count+1; j++){
 		
+                // Pega atribui o index + 1 ao index
                 id[j] = id[j + 1];
                 strcpy(nome[j], nome[j + 1]);
                 strcpy(email[j], email[j + 1]);
@@ -249,21 +270,24 @@ int main(){
                 vacina[j] = vacina[j + 1];
                 
             }
+
+            // para cada usuario excluido ele diminui o count (variavel que conta a quantidade de usuarios cadastrados)
             count--;
-          calculo=contador - count;
             break;
 
         case 4:
             //busque um usuário pelo email
-            printf("opcao: %d\n ", opcao);
+            //printf("opcao: %d\n ", opcao);
             
-            printf("Me forneca o email:");
+            printf("Me forneca o email: ");
             fflush(stdin);
             fgets(pemail, 50, stdin);
                     
             printf("\n%s", pemail);
 
             for(i = 0; i < 1000; i++){
+
+                // se o email fornecido for igual ao pesquisado no vetor ele ira demonstrar todos os dados e o index dele 
                 if(strcmp(pemail, email[i]) == 0){
                     i = j;
                    printf("Id: %d\nIndex: %dNome: %sEmail: %sSexo: %sendereco: %saltura: %.2f\nvacinou: %d\n\n", id[j], i, nome[j], email[j], sexo[j], endereco[j], altura[j], vacina[j]);
@@ -274,32 +298,22 @@ int main(){
 
         case 5:
             //imprima todos os usuários cadastrados
-            printf("opcao: %d\n ", opcao);
+            //printf("opcao: %d\n ", opcao);
 
                 for(j = 0; j < count; j++){
                         printf("Id: %d\nIndex: %d\nNome: %sEmail: %sSexo: %sendereco: %saltura: %.2f\nvacinou: %d\n\n", id[j], j, nome[j], email[j], sexo[j], endereco[j], altura[j], vacina[j]);                    
                     }
-            /*
-            if (calculo > 0 && restauracao == 1){
-                 for(j = 0; j < contador; j++){
-					printf("Id: %d\nIndex: %d\nNome: %sEmail: %sSexo: %sendereco: %saltura: %.2f\nvacinou: %d\n\n", id[j], j, nome[j], email[j], sexo[j], endereco[j], altura[j], vacina[j]);
-				}
-            } 
-            
-            else if (calculo >= 0){
-                for(j = 0; j < count; j++){
-                        printf("Id: %d\nIndex: %d\nNome: %sEmail: %sSexo: %sendereco: %saltura: %.2f\nvacinou: %d\n\n", id[j], j, nome[j], email[j], sexo[j], endereco[j], altura[j], vacina[j]);
-                    }
-                }
-             */ 
             break;
             
-			//Faça backup dos usuários cadastrados
-        case 6:
-            printf("opcao: %d\n ", opcao);
+		case 6:
+
+            //Faça backup dos usuários cadastrados
+
+            //printf("opcao: %d\n ", opcao);
             
+            // copia o que estiver no vetor principal para o de backup
             for(j = 0; j < 1000; j++){
-				//printf("a ");		 
+					 
 	            strcpy(nomeB[j],nome[j]);
 				strcpy(emailB[j],email[j] );
 				strcpy( sexoB[j],sexo[j] );
@@ -318,7 +332,9 @@ int main(){
 
         case 7:
         	//faça restauração dos dados
-            printf("opcao: %d\n ", opcao);
+
+            //copia o que estiver no backup para o vetor principal 
+            //printf("opcao: %d\n ", opcao);
           
           
             for(j = 0; j < 5; j++){
@@ -333,29 +349,20 @@ int main(){
 				strcpy(endereco[j], enderecoB[j]);
 				id[j] = idB[j];
 				altura[j] = alturaB[j];
-				vacina[j] = vacinaB[j];
-				//count = sizeof(enderecoB); 		 
+				vacina[j] = vacinaB[j]; 		 
 			}
-			calculo==0;
-          //  restauracao==1;
-            count = contador;
+			
         break;
 
         case 8:
-            printf("opcao: %d\n ", opcao);
+            printf("Obrigado por utilizar o nosso sistema ^^\n\n");
         break;
-
         
         default:
-            break;
+            printf("\nOpcao invalida\n");
         }
 
     };
 
     return 0;
 }
-
-
-
-
-// Dias que eu vou chorar vendo esse código nos meus pesadelos 

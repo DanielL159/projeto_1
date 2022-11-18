@@ -281,14 +281,14 @@ int main(){
             
             printf("Me forneca o email: ");
             fflush(stdin);
-            fgets(pemail, 50, stdin);
+            scanf("%s",&pemail);
                     
             printf("\n%s", pemail);
 
             for(i = 0; i < 1000; i++){
 
                 // se o email fornecido for igual ao pesquisado no vetor ele ira demonstrar todos os dados e o index dele 
-                if(strcmp(pemail, email[i]) == 0){
+                if(strcmp(pemail, email[i]) >=0){
                     i = j;
                    printf("Id: %d\nIndex: %dNome: %sEmail: %sSexo: %sendereco: %saltura: %.2f\nvacinou: %d\n\n", id[j], i, nome[j], email[j], sexo[j], endereco[j], altura[j], vacina[j]);
                 }
@@ -351,7 +351,7 @@ int main(){
 				altura[j] = alturaB[j];
 				vacina[j] = vacinaB[j]; 		 
 			}
-			
+			count = contador;
         break;
 
         case 8:
